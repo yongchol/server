@@ -4,5 +4,6 @@ import dev.roy.server.lotto.domain.Lotto;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface LottoRepository extends MongoRepository<Lotto, String> {
+    public Lotto findByName(String name);
 
 }
