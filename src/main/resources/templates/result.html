@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>::Roy's Lotto::</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Lotto Labs</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">홈</a></li>
+                <li><a href="/search">번호조회</a></li>
+                <li><a href="/">통계</a></li>
+                <!--
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li class="dropdown-header">Nav header</li>
+                                        <li><a href="#">Separated link</a></li>
+                                        <li><a href="#">One more separated link</a></li>
+                                    </ul>
+                                </li>
+                -->
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+<div class="container theme-showcase" role="main">
+    <div class="jumbotron">
+        <h1>Roy Lotto</h1>
+        <p>이번주 인생역전 하세요.</p>
+    </div>
+    <div class="page-header">
+        <h1>로또 번호 조회</h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-md-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Num1</th>
+                    <th>Num2</th>
+                    <th>Num3</th>
+                    <th>Num4</th>
+                    <th>Num5</th>
+                    <th>Num6</th>
+                    <th>Date</th>
+                    <th>Rank</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="lotto : ${lottoList}">
+                    <td th:text="${lotto.name}">name</td>
+                    <td th:text="${lotto.number1}">num1</td>
+                    <td th:text="${lotto.number2}">num2</td>
+                    <td th:text="${lotto.number3}">num3</td>
+                    <td th:text="${lotto.number4}">num4</td>
+                    <td th:text="${lotto.number5}">num5</td>
+                    <td th:text="${lotto.number6}">num6</td>
+                    <td th:text="${lotto.date}">Date</td>
+                    <td th:text="${lotto.rank}">rank</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/js/getrequest.js"></script>
+</body>
+</html>

@@ -5,6 +5,10 @@ import dev.roy.server.lotto.repository.LottoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
 @Service
 public class LottoService {
 
@@ -12,79 +16,71 @@ public class LottoService {
     private LottoRepository repository;
 
     public static boolean duplicate = false;
-    public static int[] numbers;
 
+    public List<Lotto> makeLottoNumber(String name, int gameCnt, int shuffleCnt) {
+        List<Integer> numbers = new ArrayList<Integer>();
 
-    public void makeLottoNumber() {
-        numbers = new int[7];
+        String userName = name;
+        int makeCnt = gameCnt;
+        int randomCnt = shuffleCnt;
 
-        numbers  =getNormalNumber();//로또번호 6개생성
-        numbers[6] = getBounusNumber(numbers);  // 보너스 번호 추가
+        List<Lotto> lottoList = new ArrayList<Lotto>();
 
-        Lotto lotto = new Lotto();
-        lotto.name ="yongchol";
-        lotto.email = "yongchols@gmail.com";
-        lotto.passwd = "1234";
+        for(int i=1; i<= makeCnt; i++) {
+            numbers = getNormalNumber(randomCnt);//로또번호 6개생성
 
-        lotto.firstNummber = numbers[0];
-        lotto.secondNumber = numbers[1];
-        lotto.thirdNumber = numbers[2];
-        lotto.fourthNumber = numbers[3];
-        lotto.fifthNumber = numbers[4];
-        lotto.sixthNumber = numbers[5];
-        lotto.bonusNumber = numbers[6];
+            Lotto lotto = new Lotto();
+            lotto.name = userName;
 
-        repository.save(lotto);
+            lotto.number1 = numbers.get(0);
+            lotto.number2 = numbers.get(1);
+            lotto.number3 = numbers.get(2);
+            lotto.number4 = numbers.get(3);
+            lotto.number5 = numbers.get(4);
+            lotto.number6 = numbers.get(5);
 
-    }
+            Calendar calendar = Calendar.getInstance();
+            java.util.Date date = calendar.getTime();
+            String today = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date));
 
+            lotto.date = today;
+            lotto.rank = "N/A";
 
-    public int[] getNormalNumber() {
-        int[] normal_number = new int[7];
-        int temp_number = 0;
+            lotto = repository.save(lotto);
 
-        for (int i = 0; i < normal_number.length; i++) {
-            temp_number = (int) (Math.random() * 45 + 1);
-            for (int j = 0; j < i; j++) {
-                if (normal_number[j] == temp_number) {
-                    duplicate = true;
-                }
-            }
-            if (!duplicate) {
-                normal_number[i] = temp_number;
-            } else {
-                duplicate = false;
-                i--;
-            }
+            lottoList.add(lotto);
 
         }
 
-        return normal_number;
+        return lottoList;
+
     }
 
-    public int getBounusNumber(int[] normal_number) {
-        int bonus = 0;
-        int temp_number = 0;
 
-        while (true) {
-            temp_number = (int) (Math.random() * 45 + 1);
-            for (int j = 0; j < normal_number.length; j++) {
-                if (normal_number[j] == temp_number) {
-                    duplicate = true;
-                }
-            }
-            if (duplicate) {
-                duplicate = false;
-                continue;
-            } else {
-                break;
-            }
+    public List<Integer> getNormalNumber(int cnt) {
+        List<Integer> numberCards = new ArrayList<Integer>();
+
+        for(int i=1;i<=45;i++) {
+            numberCards.add(i);
         }
-        bonus = temp_number;
+        for(int i=1; i<= cnt; i++) {
+            Collections.shuffle(numberCards);
+        }
 
-        return bonus;
+        List<Integer> picked = numberCards.subList(0,6);
+        Collections.sort(picked);
+
+        return picked;
     }
+
+    public List<Lotto> getLottoNumberList(boolean adminYn, String name) {
+        if(adminYn) {
+            return repository.findAll();
+        }
+        else {
+            return repository.findByName(name);
+        }
+    }
+
 
 }
-
-

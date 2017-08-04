@@ -2,38 +2,45 @@ package dev.roy.server.lotto.domain;
 
 import org.springframework.data.annotation.Id;
 
+import java.sql.Timestamp;
+import java.util.Arrays;
+import java.util.Date;
+
 public class Lotto {
 
     @Id
     public String id;
 
     public String name;
-    public String email;
-    public String passwd;
+    public int number1;
+    public int number2;
+    public int number3;
+    public int number4;
+    public int number5;
+    public int number6;
 
-    public int firstNummber;
-    public int secondNumber;
-    public int thirdNumber;
-    public int fourthNumber;
-    public int fifthNumber;
-    public int sixthNumber;
-    public int bonusNumber;
+    public String rank;
+    public String date;
+
+    public int gameCnt;
+    public int shuffleCnt;
 
     public Lotto() {
     }
 
-    public Lotto(String id, String name, String email, String passwd, int firstNummber, int secondNumber, int thirdNumber, int fourthNumber, int fifthNumber, int sixthNumber, int bonusNumber) {
+    public Lotto(String id, String name, int number1, int number2, int number3, int number4, int number5, int number6, String rank, String date, int gameCnt, int shuffleCnt) {
         this.id = id;
         this.name = name;
-        this.email = email;
-        this.passwd = passwd;
-        this.firstNummber = firstNummber;
-        this.secondNumber = secondNumber;
-        this.thirdNumber = thirdNumber;
-        this.fourthNumber = fourthNumber;
-        this.fifthNumber = fifthNumber;
-        this.sixthNumber = sixthNumber;
-        this.bonusNumber = bonusNumber;
+        this.number1 = number1;
+        this.number2 = number2;
+        this.number3 = number3;
+        this.number4 = number4;
+        this.number5 = number5;
+        this.number6 = number6;
+        this.rank = rank;
+        this.date = date;
+        this.gameCnt = gameCnt;
+        this.shuffleCnt = shuffleCnt;
     }
 
     public String getId() {
@@ -52,92 +59,83 @@ public class Lotto {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public int getNumber1() {
+        return number1;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setNumber1(int number1) {
+        this.number1 = number1;
     }
 
-    public String getPasswd() {
-        return passwd;
+    public int getNumber2() {
+        return number2;
     }
 
-    public void setPasswd(String passwd) {
-        this.passwd = passwd;
+    public void setNumber2(int number2) {
+        this.number2 = number2;
     }
 
-    public int getFirstNummber() {
-        return firstNummber;
+    public int getNumber3() {
+        return number3;
     }
 
-    public void setFirstNummber(int firstNummber) {
-        this.firstNummber = firstNummber;
+    public void setNumber3(int number3) {
+        this.number3 = number3;
     }
 
-    public int getSecondNumber() {
-        return secondNumber;
+    public int getNumber4() {
+        return number4;
     }
 
-    public void setSecondNumber(int secondNumber) {
-        this.secondNumber = secondNumber;
+    public void setNumber4(int number4) {
+        this.number4 = number4;
     }
 
-    public int getThirdNumber() {
-        return thirdNumber;
+    public int getNumber5() {
+        return number5;
     }
 
-    public void setThirdNumber(int thirdNumber) {
-        this.thirdNumber = thirdNumber;
+    public void setNumber5(int number5) {
+        this.number5 = number5;
     }
 
-    public int getFourthNumber() {
-        return fourthNumber;
+    public int getNumber6() {
+        return number6;
     }
 
-    public void setFourthNumber(int fourthNumber) {
-        this.fourthNumber = fourthNumber;
+    public void setNumber6(int number6) {
+        this.number6 = number6;
     }
 
-    public int getFifthNumber() {
-        return fifthNumber;
+    public String getRank() {
+        return rank;
     }
 
-    public void setFifthNumber(int fifthNumber) {
-        this.fifthNumber = fifthNumber;
+    public void setRank(String rank) {
+        this.rank = rank;
     }
 
-    public int getSixthNumber() {
-        return sixthNumber;
+    public String getDate() {
+        return date;
     }
 
-    public void setSixthNumber(int sixthNumber) {
-        this.sixthNumber = sixthNumber;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public int getBonusNumber() {
-        return bonusNumber;
+    public int getGameCnt() {
+        return gameCnt;
     }
 
-    public void setBonusNumber(int bonusNumber) {
-        this.bonusNumber = bonusNumber;
+    public void setGameCnt(int gameCnt) {
+        this.gameCnt = gameCnt;
     }
 
-    @Override
-    public String toString() {
-        return "Lotto{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", passwd='" + passwd + '\'' +
-                ", firstNummber=" + firstNummber +
-                ", secondNumber=" + secondNumber +
-                ", thirdNumber=" + thirdNumber +
-                ", fourthNumber=" + fourthNumber +
-                ", fifthNumber=" + fifthNumber +
-                ", sixthNumber=" + sixthNumber +
-                ", bonusNumber=" + bonusNumber +
-                '}';
+    public int getShuffleCnt() {
+        return shuffleCnt;
+    }
+
+    public void setShuffleCnt(int shuffleCnt) {
+        this.shuffleCnt = shuffleCnt;
     }
 }
