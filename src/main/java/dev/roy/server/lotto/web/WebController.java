@@ -31,6 +31,11 @@ public class WebController {
         return "login";
     }
 
+    @RequestMapping(value="/info",method = RequestMethod.GET)
+    public String info(){
+        return "info";
+    }
+
     @RequestMapping("/view/admin")
     public String viewAll(Model model) throws Exception {
         List<Lotto> lottoList = lottoService.getLottoNumberList(true, "");

@@ -2,6 +2,9 @@ $( document ).ready(function() {
 
     var url = window.location;
 
+    $('#gameCnt').val("");
+    $('#shuffleCnt').val("");
+
     $("#btnId").click(function(event){
         event.preventDefault();
         // Open Bootstrap Modal

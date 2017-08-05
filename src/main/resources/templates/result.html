@@ -25,7 +25,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">홈</a></li>
                 <li><a href="/search">번호조회</a></li>
-                <li><a href="/">통계</a></li>
+                <li><a href="/info">업데이트정보</a></li>
                 <!--
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -57,15 +57,16 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Num1</th>
-                    <th>Num2</th>
-                    <th>Num3</th>
-                    <th>Num4</th>
-                    <th>Num5</th>
-                    <th>Num6</th>
-                    <th>Date</th>
-                    <th>Rank</th>
+                    <th>이름</th>
+                    <th>번호1</th>
+                    <th>번호2</th>
+                    <th>번호3</th>
+                    <th>번호4</th>
+                    <th>번호5</th>
+                    <th>번호6</th>
+                    <th>회차</th>
+                    <th>날짜</th>
+                    <th>결과</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -77,6 +78,7 @@
                     <td th:text="${lotto.number4}">num4</td>
                     <td th:text="${lotto.number5}">num5</td>
                     <td th:text="${lotto.number6}">num6</td>
+                    <td th:text="${lotto.round}">round</td>
                     <td th:text="${lotto.date}">Date</td>
                     <td th:text="${lotto.rank}">rank</td>
                 </tr>

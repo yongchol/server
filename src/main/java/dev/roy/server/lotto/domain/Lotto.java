@@ -18,6 +18,7 @@ public class Lotto {
     public int number4;
     public int number5;
     public int number6;
+    public int numberBonus;
 
     public String rank;
     public String date;
@@ -25,10 +26,12 @@ public class Lotto {
     public int gameCnt;
     public int shuffleCnt;
 
+    public int round;
+
     public Lotto() {
     }
 
-    public Lotto(String id, String name, int number1, int number2, int number3, int number4, int number5, int number6, String rank, String date, int gameCnt, int shuffleCnt) {
+    public Lotto(String id, String name, int number1, int number2, int number3, int number4, int number5, int number6, String rank, String date, int gameCnt, int shuffleCnt, int round, int numberBonus) {
         this.id = id;
         this.name = name;
         this.number1 = number1;
@@ -37,10 +40,28 @@ public class Lotto {
         this.number4 = number4;
         this.number5 = number5;
         this.number6 = number6;
+        this.numberBonus = numberBonus;
         this.rank = rank;
         this.date = date;
         this.gameCnt = gameCnt;
         this.shuffleCnt = shuffleCnt;
+        this.round = round;
+    }
+
+    public int getNumberBonus() {
+        return numberBonus;
+    }
+
+    public void setNumberBonus(int numberBonus) {
+        this.numberBonus = numberBonus;
+    }
+
+    public int getRound() {
+        return round;
+    }
+
+    public void setRound(int round) {
+        this.round = round;
     }
 
     public String getId() {

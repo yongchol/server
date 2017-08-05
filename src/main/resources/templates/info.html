@@ -7,6 +7,7 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" />
     <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+
 </head>
 <body>
 <!-- Fixed navbar -->
@@ -26,20 +27,20 @@
                 <li class="active"><a href="/">홈</a></li>
                 <li><a href="/search">번호조회</a></li>
                 <li><a href="/info">업데이트정보</a></li>
-<!--
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
--->
+                <!--
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li class="dropdown-header">Nav header</li>
+                                        <li><a href="#">Separated link</a></li>
+                                        <li><a href="#">One more separated link</a></li>
+                                    </ul>
+                                </li>
+                -->
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -49,18 +50,27 @@
         <h1>Roy Lotto</h1>
         <p>이번주 인생역전 하세요.</p>
     </div>
+
     <div class="page-header">
-        <h1>로또 번호 조회</h1>
+        <h1>업데이트 이력</h1>
     </div>
-    <p>
-        <form th:action="@{/view}" th:object="${lotto}" method="POST">
-            <div class="form-group">
-                <label for="name">이름</label>
-                <input type="text" class="form-control" th:field="*{name}" id="name" placeholder="번호 생성시 등록했던 이름을 입력하세요."/>
-            </div>
-            <button type="submit" class="btn btn-lg btn-primary">번호 조회</button>
-        </form>
-    </p>
+    <div class="alert alert-success" role="alert">
+        <strong>v0.1 - 2017.8.4</strong><br/>
+        <ul>
+            <li>베타 서비스 오픈.</li>
+        </ul>
+
+        <br/>
+
+        <strong>v0.2 - 2017.8.5</strong><br/>
+        <ul>
+            <li>당첨결과 업데이트 API 개발. (관리자 전용)</li>
+            <li>메인 페이지 게임 및 섞는 횟수 디폴트 0으로 나오던 오류 수정.</li>
+            <li>결과조회 화면에 로또 회차정보 포함.</li>
+        </ul>
+
+    </div>
+
 </div>
 
 <script src="/webjars/jquery/3.1.1/jquery.min.js"></script>

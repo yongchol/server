@@ -43,4 +43,15 @@ public class LottoController {
         return modelAndView;
 
     }
+
+    @RequestMapping("/lotto/updateRank")
+    public ModelAndView updateRank(@Valid Lotto lotto, BindingResult result) {
+        lottoService.updateRank(lotto);
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("view");
+
+        return modelAndView;
+
+    }
 }
